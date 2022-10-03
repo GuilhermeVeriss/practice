@@ -12,23 +12,15 @@ if __name__ == '__main__':
     
     while True: 
         if n <= 2:
-            binn.insert(0, n % 2)
+            binn.insert(0, str(n % 2))
             b = n // 2
             if b:
-                binn.insert(0, b)
+                binn.insert(0, str(b))
             break
     
-        binn.insert(0, n % 2)
+        binn.insert(0, str(n % 2))
         n //= 2
     
-    bigger = 0
-    current = 0
-    for i in binn:
-        if i == 1:
-            current +=1 
-        elif i == 0:
-            if current > bigger:
-                bigger = current
-            current = 0
+    ones = map(len, ''.join(binn).split('0'))
 
-    print(bigger)
+    print(max(ones))
